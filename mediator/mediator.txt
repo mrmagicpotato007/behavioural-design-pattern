@@ -1,0 +1,13 @@
+The pattern restricts direct communication between objects.There will be a mediator between objects to communicate.
+
+when to use:
+1)Use the Mediator pattern when it’s hard to change some of the classes because they are tightly coupled to a bunch of other classes.
+2)This will reduce dependencies between two objects.
+
+Real worl analogy:control tower for different aircrafts (chopper,plane,jet)
+
+ex:implement railway station system
+just imagine the implementation to get to know about the status of platform we will have nested statements.
+
+thoughts:
+how about if we have global variables.instead of having mediator
