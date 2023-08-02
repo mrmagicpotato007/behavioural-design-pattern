@@ -1,0 +1,8 @@
+command converts simple operations or requests to objects.
+Each command is an object , we will have executors/invokers we will have receivers/where the execution is happening 
+The conversion allows deferred or remote execution of commands, storing command history, etc.
+
+example:
+restarurant - receivers with actual business logic
+cooks - executors (will have bunch of command objects embedded to them)
+commands - (make pizza,make salad,clean dishes) commands will have receivers embedded into them

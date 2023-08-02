@@ -1,0 +1,17 @@
+chain of resposnibilty will sequentitally process the request , each handler either passes to next handler with or without  processing it or can end the chain.
+
+real world:
+call center support.
+1)reception
+2)doctor
+3)medicine
+4)cashier
+
+tip:
+heirarchy of creating objects is from reverse to bottom
+1)cashier creator 
+2)medicine creation
+3)medicine.setnext(cashier)
+....
+patient
+n)reception.execute()
