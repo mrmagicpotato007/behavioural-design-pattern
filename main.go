@@ -4,6 +4,7 @@ import (
 	"behavioural/command"
 	"behavioural/mediator"
 	"behavioural/chainofresp"
+	"behavioural/strategy"
 )
 
 func main() {
@@ -40,5 +41,14 @@ func main() {
 	reception.SetNext(doctor)
 	patient := chainofresp.NewPatient("harsha")
 	chainofresp.Executor(reception,patient)
+
+	//startegy
+	lru := strategy.NewLRU()
+	cache := strategy.NewCache()
+	cache.SetEviction(lru)
+	cache.Add("key1","val1")
+	cache.Add("key2","val2")
+	cache.Add("key3","val3")
+
 
 }
