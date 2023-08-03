@@ -1,10 +1,11 @@
 package main
 
 import (
+	"behavioural/chainofresp"
 	"behavioural/command"
 	"behavioural/mediator"
-	"behavioural/chainofresp"
 	"behavioural/strategy"
+	"behavioural/template"
 )
 
 func main() {
@@ -40,15 +41,25 @@ func main() {
 	reception := chainofresp.NewReception()
 	reception.SetNext(doctor)
 	patient := chainofresp.NewPatient("harsha")
-	chainofresp.Executor(reception,patient)
+	chainofresp.Executor(reception, patient)
 
 	//startegy
 	lru := strategy.NewLRU()
 	cache := strategy.NewCache()
 	cache.SetEviction(lru)
-	cache.Add("key1","val1")
-	cache.Add("key2","val2")
-	cache.Add("key3","val3")
+	cache.Add("key1", "val1")
+	cache.Add("key2", "val2")
+	cache.Add("key3", "val3")
 
+	//template pattern]
+	smsOTP := &template.Sms{}
+	o := template.Otp{IOtp: smsOTP}
+	o.GenAndSendOTP(4)
+
+	emailOTP := &template.Email{}
+	o = template.Otp{
+		IOtp: emailOTP,
+	}
+	o.GenAndSendOTP(4)
 
 }
